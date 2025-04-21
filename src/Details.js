@@ -201,7 +201,7 @@ export const projectDetails = [
     image: projectImage6,
     description: `MyPortfolio is a dynamic personal portfolio website built using ReactJS, designed to showcase my skills, projects, and professional experience in a visually appealing and interactive manner. This project highlights my proficiency in front-end development and my ability to create responsive, user-friendly web applications`,
     techstack: "React.js ,tailwind+CSS,javscript",
-    previewLink: "https://google.com",
+    previewLink: "https://ajeetgupta-react-portfolio.vercel.app/",
     githubLink: "https://github.com/Ajeet9918/ReactPortfolio.git",
   },
 ];
