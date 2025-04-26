@@ -6,22 +6,63 @@
 .max-width {
   @apply lg:mx-auto lg:px-24 xl:px-48 px-5;
 }
+
 .bg-gradient {
   @apply bg-gradient-to-r from-sky-500 via-purple-500 to-pink-600;
 }
+
 .text-gradient {
   @apply bg-clip-text bg-gradient text-transparent;
 }
+
 .section {
   @apply pt-28 xl:pt-28 2xl:pt-44;
 }
+
 .text-content {
   @apply dark:text-light-content text-dark-content;
 }
+
 body {
   overflow-x: hidden;
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
   display: none;
+}
+
+.bg-animate {
+  background: linear-gradient(-45deg,
+    #314a72, #6651a6, #5b2a45, #8b5c2c,
+    #314a72, #6651a6, #5b2a45, #8b5c2c);
+  background-size: 400% 400%;
+  animation: 
+    gradientShift 10s ease-in-out infinite, 
+    backgroundPulse 30s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    background-size: 400% 400%;
+  }
+  50% {
+    background-size: 420% 420%;
+  }
+}
+
+footer {
+  margin-top: auto; /* Push footer to the bottom */
 }

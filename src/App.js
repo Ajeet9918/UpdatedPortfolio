@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
@@ -9,6 +10,7 @@ import Technologies from "./Pages/Technologies";
 import Certificates from "./Pages/Certificates";
 function App() {
   return (
+    
     <Router>
       <Header />
       <Routes>

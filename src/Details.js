@@ -1,5 +1,6 @@
 
 import profile from "./assets/profile.jpg";
+import profile1 from "./assets/AJeet.jpg";
 // Tech stack images
 import html from "./assets/techstack/html.png";
 import css from "./assets/techstack/css.png";
@@ -165,7 +166,7 @@ export const projectDetails = [
   {
     title: "Weather Application",
     image: projectImage2,
-    description: `This is an interactive weather application built with ReactJS, designed to provide users with real-time weather updates for any city worldwide.This project demonstrates my proficiency in React and API integration, offering features like current conditions, forecasts, and location-based weather data`,
+    description: `This is an interactive weather application built with ReactJS, designed to provide users with real-time weather updates for any city worldwide.This project demonstrates my proficiency in React and API integration, offering features like current conditions, forecasts, and location-based weather data.`,
     techstack: "React.js , CSS and javascript",
     previewLink: "https://ajeet884-weather-react.vercel.app/",
     githubLink: "https://github.com/Ajeet9918/WeatherApp.git",
@@ -183,7 +184,7 @@ export const projectDetails = [
   {
     title: "Fitness-tracker website",
     image: projectImage4,
-    description: `This is a dynamic web application designed to help users monitor and enhance their fitness journey. Built with ReactJS and TypeScript, this application provides a user-friendly interface for tracking workouts, managing nutrition, and setting fitness goals`,
+    description: `This is a dynamic web application designed to help users monitor and enhance their fitness journey. Built with ReactJS and TypeScript, this application provides a user-friendly interface for tracking workouts, managing nutrition, and setting fitness goals.`,
     techstack: "React.js ,TypeScript, CSS",
     previewLink: "https://ajeetgupta-fitness-tracker.vercel.app/",
     githubLink: "https://github.com/Ajeet9918/Fitness-tracker.git",
@@ -199,7 +200,7 @@ export const projectDetails = [
   {
     title: "Portfolio website",
     image: projectImage6,
-    description: `MyPortfolio is a dynamic personal portfolio website built using ReactJS, designed to showcase my skills, projects, and professional experience in a visually appealing and interactive manner. This project highlights my proficiency in front-end development and my ability to create responsive, user-friendly web applications`,
+    description: `MyPortfolio is a dynamic personal portfolio website built using ReactJS, designed to showcase my skills, projects, and professional experience in a visually appealing and interactive manner. This project highlights my proficiency in front-end development and my ability to create responsive, user-friendly web applications.`,
     techstack: "React.js ,tailwind+CSS,javscript",
     previewLink: "https://ajeetgupta-react-portfolio.vercel.app/",
     githubLink: "https://github.com/Ajeet9918/ReactPortfolio.git",
