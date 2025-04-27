@@ -59,11 +59,12 @@ function Certificates() {
 
   return (
     <motion.section 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className=" text-gray-800 pt-24 min-h-screen px-4 sm:px-6 lg:px-8"
-    >
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  className="text-gray-800 pt-24 min-h-screen px-4 sm:px-6 lg:px-8 bg-black/40 backdrop-blur-lg pb-24" // Added pb-24
+>
+
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
@@ -71,7 +72,7 @@ function Certificates() {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-center mb-12"
+          className="text-center mb-12 "
         >
           <motion.h1 
             initial={{ opacity: 0 }}

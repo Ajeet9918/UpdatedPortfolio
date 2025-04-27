@@ -3,79 +3,47 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { personalDetails } from "../Details";
-import Contact from "./Contact";
 
-// Register ScrollTrigger plugin
+// Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   const { name, tagline, img } = personalDetails;
-  const h11 = useRef();
-  const h12 = useRef();
-  const h13 = useRef();
-  const myimageref = useRef();
   const containerRef = useRef();
-  const contactBtnRef = useRef();
+  const headingRefs = useRef([]);
+  const imageRef = useRef();
+  const buttonRef = useRef();
 
   useEffect(() => {
-    // Master timeline
-    const tl = gsap.timeline({
-      defaults: { ease: "power3.out" },
-    });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Container animation (subtle fade in)
-    tl.from(containerRef.current, {
-      opacity: 0,
-      duration: 0.5,
-    });
+    tl.from(containerRef.current, { opacity: 0, duration: 0.5 })
+      .from(headingRefs.current, {
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+      }, "<0.3")
+      .from(imageRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        rotate: -5,
+        duration: 1.2,
+      }, "<0.3")
+      .from(buttonRef.current, {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      }, "<0.2");
 
-    // Text animations with staggered delays
-    tl.from(h11.current, {
-      x: "-50px",
-      opacity: 0,
-      duration: 1.2,
-    })
-    .from(h12.current, {
-      y: "30px",
-      opacity: 0,
-      duration: 1,
-      delay: 0.3,
-    }, "<0.5")
-    .from(h13.current, {
-      y: "30px",
-      opacity: 0,
-      duration: 1,
-    }, "<0.3")
-    .from(myimageref.current, {
-      x: "50px",
-      opacity: 0,
-      duration: 1.5,
-      scale: 0.8,
-      rotate: "-5deg",
-    }, "<0.2")
-    .from(contactBtnRef.current, {
-      y: "20px",
-      opacity: 0,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-    }, "<0.5");
-
-    // Floating animation for the image
-    gsap.to(myimageref.current, {
-      y: "10px",
+    // Floating animation for image
+    gsap.to(imageRef.current, {
+      y: 10,
       duration: 3,
       repeat: -1,
       yoyo: true,
       ease: "sine.inOut",
-    });
-
-    // Background pulse effect
-    gsap.to(containerRef.current, {
-      backgroundPositionX: "10%",
-      duration: 15,
-      repeat: -1,
-      yoyo: true,
-      ease: "none",
     });
   }, []);
 
@@ -85,66 +53,70 @@ function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto max-width section md:flex justify-between items-center bg-gradient-to-r from-gray-800 to-gray-700 text-white p-8 rounded-lg shadow-lg"
+      className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-black/30 backdrop-blur-lg pb-24"
     >
-      <div className="bg-gray-900 p-6 rounded-lg shadow-md">
-        <motion.h1
-          ref={h11}
-          className="text-2xl text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
-          whileHover={{ scale: 1.02 }}
-        >
-          Hi,👋<br></br>My Name is<br></br>
-        </motion.h1>
+      {/* Blurred Background Overlay */}
+      {/* <div className="absolute inset-0 /40 backdrop-blur-md z-0"></div> */}
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         
-        <motion.h1
-          ref={h12}
-          className="text-2xl bg-clip-text bg-gradient text-transparent md:text-4xl xl:text-5xl xl:leading-tight font-bold text-hover"
-          whileHover={{ 
-            scale: 1.02,
-            textShadow: "0 0 10px rgba(255,255,255,0.5)"
-          }}
+        {/* Left - Text */}
+        <div className="max-w-xl text-center md:text-left space-y-6">
+          <motion.h1
+            ref={(el) => headingRefs.current[0] = el}
+            className="text-4xl md:text-5xl font-extrabold text-white leading-tight"
+            whileHover={{ scale: 1.03 }}
+          >
+            Hi 👋, I'm
+          </motion.h1>
+
+          <motion.h2
+            ref={(el) => headingRefs.current[1] = el}
+            className="text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-orange-500 font-extrabold leading-tight"
+            whileHover={{ scale: 1.03 }}
+          >
+            {name}
+          </motion.h2>
+
+          <motion.h3
+            ref={(el) => headingRefs.current[2] = el}
+            className="text-2xl md:text-3xl text-gray-300 font-medium"
+            whileHover={{ scale: 1.02 }}
+          >
+            {tagline}
+          </motion.h3>
+
+          <motion.a
+            ref={buttonRef}
+            href="/contact"
+            className="inline-block mt-6 bg-blue-400 text-gray-900 font-semibold py-3 px-6 rounded-full shadow-md hover:bg-yellow-300 transition transform hover:scale-105"
+            whileHover={{
+              boxShadow: "0 5px 20px rgba(255,214,10,0.4)",
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contact Me
+          </motion.a>
+        </div>
+
+        {/* Right - Image */}
+        <motion.div
+          className="w-72 md:w-96"
+          whileHover={{ scale: 1.05 }}
         >
-          {name}
-        </motion.h1>
-        
-        <motion.h2
-          ref={h13}
-          className="text-2xl text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
-          whileHover={{ scale: 1.01 }}
-        >
-          {tagline}
-        </motion.h2>
-        
-        <motion.a
-          ref={contactBtnRef}
-          href="/contact"
-          className="mt-4 inline-block bg-yellow-500 text-gray-800 font-bold py-2 px-4 rounded hover:bg-yellow-400 transition duration-300"
-          whileHover={{ 
-            scale: 1.05,
-            boxShadow: "0 5px 15px rgba(255,214,0,0.4)"
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Contact Me
-        </motion.a>
+          <motion.img
+            ref={imageRef}
+            src={img}
+            alt="Ajeet Gupta"
+            className="rounded-full border-4 border-yellow-400 shadow-lg object-cover"
+            whileHover={{
+              borderColor: "#facc15",
+              transition: { duration: 0.4 },
+            }}
+          />
+        </motion.div>
       </div>
-      
-      <motion.div 
-        className="mt-5 md:mt-0"
-        whileHover={{ scale: 1.03 }}
-      >
-        <motion.img
-          ref={myimageref}
-          className="w-3/4 md:ml-auto rounded-full border-4 border-white shadow-xl"
-          src={img}
-          alt="Ajeet Gupta"
-          whileHover={{ 
-            // rotate: 2,
-            borderColor: "#f59e0b",
-            transition: { duration: 0.3 }
-          }}
-        />
-      </motion.div>
     </motion.main>
   );
 }

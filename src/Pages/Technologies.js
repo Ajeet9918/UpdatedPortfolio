@@ -77,7 +77,7 @@ function Technologies() {
   ];
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden bg-black/40 backdrop-blur-lg pb-24">
       {/* Floating background elements */}
       {blobs.map((blob, index) => (
         <FloatingBlob
@@ -113,12 +113,10 @@ function Technologies() {
             whileInView={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring" }}
             viewport={{ once: true }}
-            className="absolute -left-4 -top-4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl -z-10"
+            className="absolute -left-4 top-4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl -z-10"
           />
-          <h2 className="text-sm font-semibold text-blue-500 dark:text-blue-400 uppercase tracking-wider mb-4">
-            My Expertise
-          </h2>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-light-heading dark:text-light-heading mb-6">
+          
+          <h1 className="text-3xl md:text-4xl lg:text-5xl mt-4 font-bold text-light-heading dark:text-light-heading mb-6">
             Technologies & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Tools</span>
           </h1>
           <motion.p 

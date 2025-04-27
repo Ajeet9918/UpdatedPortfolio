@@ -49,7 +49,7 @@ function About() {
       <motion.section
         variants={itemVariants}
         whileHover={cardHover}
-        className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-12 border border-gray-100 dark:border-gray-700"
+        className="bg-white dark:bg-gray-800 p-8 mt-6 rounded-2xl shadow-xl mb-12 border border-gray-100 dark:border-gray-700"
       >
         <div className="flex items-center mb-6">
           <motion.div 
