@@ -16,7 +16,7 @@
 }
 
 .section {
-  @apply pt-28 xl:pt-28 2xl:pt-44;
+  @apply pt-20 md:pt-28 xl:pt-28 2xl:pt-44;
 }
 
 .text-content {
